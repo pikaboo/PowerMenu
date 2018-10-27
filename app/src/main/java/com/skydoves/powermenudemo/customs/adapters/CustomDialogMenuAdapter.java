@@ -7,37 +7,43 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.skydoves.powermenu.MenuBaseAdapter;
 import com.skydoves.powermenudemo.R;
 import com.skydoves.powermenudemo.customs.items.NameCardMenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Developed by skydoves on 2017-12-18.
  * Copyright (c) 2017 skydoves rights reserved.
  */
 
-public class CustomDialogMenuAdapter extends MenuBaseAdapter<NameCardMenuItem> {
+public class CustomDialogMenuAdapter extends RecyclerView.Adapter<CustomDialogMenuItemViewHolder> {
 
     public CustomDialogMenuAdapter() {
         super();
     }
 
+
+    @NonNull
     @Override
-    public View getView(int index, View view, ViewGroup viewGroup) {
-        final Context context = viewGroup.getContext();
-
-        if(view == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.item_name_card, viewGroup, false);
-        }
-
-        NameCardMenuItem item = (NameCardMenuItem) getItem(index);
-        final ImageView icon = view.findViewById(R.id.item_name_card_profile);
-        icon.setImageDrawable(item.getIcon());
-        final TextView name = view.findViewById(R.id.item_name_card_name);
-        name.setText(item.getName());
-        final TextView content = view.findViewById(R.id.item_name_card_board);
-        content.setText(item.getContent());
-        return super.getView(index, view, viewGroup);
+    public CustomDialogMenuItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_name_card, parent, false);
+        return new CustomDialogMenuItemViewHolder(itemView);
     }
+
+    @Override
+    public void onBindViewHolder(@NonNull CustomDialogMenuItemViewHolder holder, int position) {
+//        NameCardMenuItem item = getItem(position);
+//
+//        holder.icon.setImageDrawable(item.getIcon());
+//        holder.name.setText(item.getName());
+//        holder.content.setText(item.getContent());
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
 }

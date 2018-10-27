@@ -2,7 +2,7 @@
 
 buildscript {
 
-    ext.supportLib = '27.1.1'
+    //ext.supportLib = '27.1.1'
 
     repositories {
         google()
@@ -16,6 +16,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url "https://jitpack.io" }
         google()
         jcenter()
     }

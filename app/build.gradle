@@ -1,11 +1,17 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    maven { url "https://jitpack.io" }
+    jcenter()
+}
+
+
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.skydoves.powermenu.powermenudemo"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion 17
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -21,8 +27,12 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$supportLib"
-    implementation "com.android.support:design:$supportLib"
+//    implementation "com.android.support:appcompat-v7:$supportLib"
+//    implementation "com.android.support:design:$supportLib"
+    implementation 'androidx.cardview:cardview:1.0.0-beta01'
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'com.google.android.material:material:1.0.0-beta01'
+
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation project(":powermenu")
 }
